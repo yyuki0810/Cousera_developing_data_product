@@ -1,0 +1,23 @@
+---
+title: "Rmarkdown&Plotly_cousera"
+output: html_document
+author: "Y.Yokota"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Plotly example
+# date:"4-4-2020"
+
+```{r }
+library(plotly)
+library(titanic)
+  df<-titanic_train %>% dplyr::select(Survived,Fare,Age)
+  df$Survived<-as.logical(df$Survived)
+  df2<-subset(df,complete.cases(df))
+
+  gg<-ggplot(data=df2,aes(Age,Fare,color=Survived))+geom_point()
+  ggplotly(gg)
+```
