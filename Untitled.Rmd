@@ -1,0 +1,29 @@
+---
+title: "Leaflet_cousera"
+output: html_document
+author: "Y.Yokota"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## LeafLet example
+# date:"4-4-2020"
+
+```{r }
+library(tidyverse)
+library(leaflet)
+'LONGITUDE,Lattitude'
+df<-data.frame(lat=runif(100,36,37),　
+               lng=runif(100,140,141))
+
+df %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(clusterOptions = markerClusterOptions()) %>%
+  addMarkers(140.28,36.22)
+   
+  
+```
+
